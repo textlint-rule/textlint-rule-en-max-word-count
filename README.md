@@ -1,4 +1,4 @@
-# textlint-rule-en-max-word-count
+# textlint-rule-en-max-word-count [![Build Status](https://travis-ci.org/azu/textlint-rule-en-max-word-count.svg?branch=master)](https://travis-ci.org/azu/textlint-rule-en-max-word-count)
 
 [textlint](https://github.com/textlint/textlint "textlint") rule that specify the maximum word count of a sentence.
 
