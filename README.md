@@ -42,6 +42,26 @@ textlint --rule en-max-word-count README.md
 }
 ```
 
+## Example
+
+
+### OK :green_heart:
+
+max: 4
+
+    This is a pen.
+
+### NG :negative_squared_cross_mark:
+
+max: 4
+
+    So, this is a pen.
+    
+    // => Exceeds the maximum word count of 4.
+    
+
+
+
 ## Tests
 
      npm test
