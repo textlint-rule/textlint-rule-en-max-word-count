@@ -1,0 +1,38 @@
+{
+  "name": "textlint-rule-en-max-word-count",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azu/textlint-rule-en-max-word-count.git"
+  },
+  "author": "azu",
+  "email": "azuciao@gmail.com",
+  "homepage": "https://github.com/azu/textlint-rule-en-max-word-count",
+  "license": "MIT",
+  "files": [
+    "src/",
+    "lib/"
+  ],
+  "bugs": {
+    "url": "https://github.com/azu/textlint-rule-en-max-word-count/issues"
+  },
+  "version": "1.0.0",
+  "description": "textlint rule that specify the maximum word count of a sentence.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "object-assign": "^4.0.1",
+    "sentence-splitter": "^2.0.0",
+    "split-string-words": "0.0.3",
+    "textlint-util-to-string": "^1.2.0",
+    "unist-util-map": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "textlint"
+  ]
+}
