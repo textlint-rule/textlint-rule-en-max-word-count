@@ -1,11 +1,9 @@
-// LICENSE : MIT
-"use strict";
 const TextLintTester = require("textlint-tester");
 const tester = new TextLintTester();
 // rule
 import rule from "../src/textlint-rule-en-max-word-count";
 // ruleName, rule, { valid, invalid }
-tester.run("no-todo", rule, {
+tester.run("max-word-count", rule, {
     valid: [
         // no match
         {
@@ -60,7 +58,7 @@ This is not a pen.`,
         },
         // multiple hit items in a line
         {
-            text: `This is a pen.This is not a pen.`,
+            text: "This is a pen.This is not a pen.",
             options: {
                 max: 3
             },
@@ -79,7 +77,7 @@ This is not a pen.`,
         },
         // It is a single sentence
         {
-            text: `This is a pen This is not a pen.`,
+            text: "This is a pen This is not a pen.",
             options: {
                 max: 3
             },

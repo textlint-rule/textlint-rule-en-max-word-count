@@ -1,18 +1,16 @@
-// LICENSE : MIT
-"use strict";
+// Helper for creating new AST using map function
+// https://github.com/azu/unist-util-map
+// if you want to filter, use https://github.com/eush77/unist-util-filter
+import map from "unist-util-map";
 // Helper for converting plain text from Syntax-ed text(markdown AST
 // https://github.com/azu/textlint-util-to-string
 import StringSource from "textlint-util-to-string";
 // Helper for splitting text to sentences
 // https://github.com/azu/sentence-splitter
 import {split as splitSentence, Syntax as SplitterSyntax} from "sentence-splitter";
-// Helper for creating new AST using map function
-// https://github.com/azu/unist-util-map
-// if you want to filter, use https://github.com/eush77/unist-util-filter
-import map from "unist-util-map";
 // Helper for splitting text to words
 // https://github.com/timjrobinson/split-string-words
-import splitWord from 'split-string-words';
+import splitWord from "split-string-words";
 import ObjectAssign from "object-assign";
 // Default options
 const defaultOptions = {
@@ -72,5 +70,5 @@ export default function (context, options = {}) {
                 }
             });
         }
-    }
+    };
 }
