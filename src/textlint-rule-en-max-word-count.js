@@ -58,7 +58,6 @@ function report(context, options = {}) {
                 };
                  */
                 const sentenceText = sentence.value;
-                console.log(sentenceText);
                 // words in a sentence
                 const words = splitWords(sentenceText);
                 // over count of word, then report error
