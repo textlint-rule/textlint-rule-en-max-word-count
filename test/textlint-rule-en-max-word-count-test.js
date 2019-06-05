@@ -18,6 +18,30 @@ tester.run("max-word-count", rule, {
             options: {
                 max: 3
             }
+        },
+        {
+            text: `
+
+### JMS Messaging Properties
+
+#### \`ep.jms.type\`
+
+Developer Default: \`org.apache.activemq.pool.PooledConnectionFactory\`
+
+The Java Class type of the JMS Broker Connection Factory.\t
+
+#### \`ep.jms.factory\`
+
+Developer Default: \`org.apache.activemq.jndi.JNDIReferenceFactory\`
+
+The JNDI resource factory used by the application.\t
+
+#### \`ep.jms.url\`
+
+Developer Default: \`tcp://localhost:61616\`
+
+The URL of the JMS broker.
+`
         }
     ],
     invalid: [

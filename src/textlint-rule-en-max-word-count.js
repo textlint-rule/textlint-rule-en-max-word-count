@@ -10,8 +10,9 @@ import StringSource from "textlint-util-to-string";
 import {split as splitSentence, Syntax as SplitterSyntax} from "sentence-splitter";
 // Helper for splitting text to words
 // https://github.com/timjrobinson/split-string-words
-import splitWord from "split-string-words";
+import {splitWords} from "./split-words";
 import ObjectAssign from "object-assign";
+
 // Default options
 const defaultOptions = {
     // max count of words >
@@ -21,7 +22,7 @@ const defaultOptions = {
  * @param {TextLintRuleContext} context
  * @param {Object} options
  */
-export default function (context, options = {}) {
+function report(context, options = {}) {
     const {Syntax, getSource, RuleError, report} = context;
     const maxWordCount = options.max ? options.max : defaultOptions.max;
     return {
@@ -57,8 +58,9 @@ export default function (context, options = {}) {
                 };
                  */
                 const sentenceText = sentence.value;
+                console.log(sentenceText);
                 // words in a sentence
-                const words = splitWord(sentenceText);
+                const words = splitWords(sentenceText);
                 // over count of word, then report error
                 if (words.length > maxWordCount) {
                     // get original index value of sentence.loc.start
@@ -72,3 +74,4 @@ export default function (context, options = {}) {
         }
     };
 }
+module.exports = report;
