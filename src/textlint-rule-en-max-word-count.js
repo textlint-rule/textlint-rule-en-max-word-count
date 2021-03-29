@@ -64,7 +64,8 @@ function report(context, options = {}) {
                 if (words.length > maxWordCount) {
                     // get original index value of sentence.loc.start
                     const originalIndex = source.originalIndexFromPosition(sentence.loc.start);
-                    const ruleError = new RuleError(`Exceeds the maximum word count of ${maxWordCount}.`, {
+                    const sentenceFragment = `${words.slice(0,3).join(' ')} ...`;
+                    const ruleError = new RuleError(`Maximum word count (${maxWordCount}) exceeded (${words.length}) by "${sentenceFragment}".`, {
                         index: originalIndex
                     });
                     report(node, ruleError);
