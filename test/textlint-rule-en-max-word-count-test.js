@@ -20,7 +20,7 @@ tester.run("max-word-count", rule, {
             }
         },
         {
-            text: `
+            text: `## Multiline test
 
 ### JMS Messaging Properties
 
@@ -53,7 +53,7 @@ The URL of the JMS broker.
             },
             errors: [
                 {
-                    message: "Exceeds the maximum word count of 3.",
+                    message: `Maximum word count (3) exceeded (4) by "This is a ...".`,
                     line: 1,
                     column: 1
                 }
@@ -62,19 +62,19 @@ The URL of the JMS broker.
         // multiple match in multiple lines
         {
             text: `This is a pen.
-            
+
 This is not a pen.`,
             options: {
                 max: 3
             },
             errors: [
                 {
-                    message: "Exceeds the maximum word count of 3.",
+                    message: `Maximum word count (3) exceeded (4) by "This is a ...".`,
                     line: 1,
                     column: 1
                 },
                 {
-                    message: "Exceeds the maximum word count of 3.",
+                    message: `Maximum word count (3) exceeded (5) by "This is not ...".`,
                     line: 3,
                     column: 1
                 }
@@ -88,12 +88,12 @@ This is not a pen.`,
             },
             errors: [
                 {
-                    message: "Exceeds the maximum word count of 3.",
+                    message: `Maximum word count (3) exceeded (4) by "This is a ...".`,
                     line: 1,
                     column: 1
                 },
                 {
-                    message: "Exceeds the maximum word count of 3.",
+                    message: `Maximum word count (3) exceeded (5) by "This is not ...".`,
                     line: 1,
                     column: 15
                 }
@@ -107,7 +107,7 @@ This is not a pen.`,
             },
             errors: [
                 {
-                    message: "Exceeds the maximum word count of 3.",
+                    message: `Maximum word count (3) exceeded (9) by "This is a ...".`,
                     line: 1,
                     column: 1
                 }
