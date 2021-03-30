@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/azu/textlint-rule-en-max-word-count/issues"
   },
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "textlint rule that specify the maximum word count of a sentence.",
   "main": "lib/textlint-rule-en-max-word-count.js",
   "directories": {
