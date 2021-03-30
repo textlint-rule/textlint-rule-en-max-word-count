@@ -28,7 +28,7 @@
     "unist-util-map": "^1.0.1"
   },
   "devDependencies": {
-    "textlint-scripts": "^2.1.0"
+    "textlint-scripts": "^3.0.0"
   },
   "scripts": {
     "build": "textlint-scripts build",
