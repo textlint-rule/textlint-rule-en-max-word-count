@@ -4,37 +4,38 @@
 import map from "unist-util-map";
 // Helper for converting plain text from Syntax-ed text(markdown AST
 // https://github.com/azu/textlint-util-to-string
-import StringSource from "textlint-util-to-string";
+import { StringSource } from "textlint-util-to-string";
 // Helper for splitting text to sentences
 // https://github.com/azu/sentence-splitter
-import {split as splitSentence, Syntax as SplitterSyntax} from "sentence-splitter";
+import { split as splitSentence, Syntax as SplitterSyntax } from "sentence-splitter";
 // Helper for splitting text to words
 // https://github.com/timjrobinson/split-string-words
-import {splitWords} from "./split-words";
-import ObjectAssign from "object-assign";
+import { splitWords } from "./split-words";
 
 // Default options
 const defaultOptions = {
     // max count of words >
     max: 50
 };
+
 /**
  * @param {TextLintRuleContext} context
  * @param {Object} options
  */
 function report(context, options = {}) {
-    const {Syntax, getSource, RuleError, report} = context;
+    const { Syntax, getSource, RuleError, report, locator } = context;
     const maxWordCount = options.max ? options.max : defaultOptions.max;
     return {
-        [Syntax.Paragraph](node){
+        [Syntax.Paragraph](node) {
             // replace code with dummy code
             // if you want to filter(remove) code, use https://github.com/eush77/unist-util-filter
             const filteredNode = map(node, (node) => {
                 if (node.type === Syntax.Code) {
                     // only change `value` to dummy
-                    return ObjectAssign({}, node, {
+                    return {
+                        ...node,
                         value: "code"
-                    });
+                    }
                 }
                 return node;
             });
@@ -57,16 +58,22 @@ function report(context, options = {}) {
                     range: range
                 };
                  */
-                const sentenceText = sentence.value;
+                const sentenceText = sentence.raw;
+                console.log({
+                    sentence: sentence.loc
+                })
                 // words in a sentence
                 const words = splitWords(sentenceText);
                 // over count of word, then report error
                 if (words.length > maxWordCount) {
                     // get original index value of sentence.loc.start
-                    const originalIndex = source.originalIndexFromPosition(sentence.loc.start);
-                    const sentenceFragment = `${words.slice(0,3).join(' ')} ...`;
+                    const [startIndex, endIndex] = [
+                        source.originalIndexFromPosition(sentence.loc.start),
+                        source.originalIndexFromPosition(sentence.loc.end),
+                    ];
+                    const sentenceFragment = `${words.slice(0, 3).join(' ')} ...`;
                     const ruleError = new RuleError(`Maximum word count (${maxWordCount}) exceeded (${words.length}) by "${sentenceFragment}".`, {
-                        index: originalIndex
+                        padding: locator.range([startIndex, endIndex])
                     });
                     report(node, ruleError);
                 }
@@ -74,4 +81,5 @@ function report(context, options = {}) {
         }
     };
 }
-module.exports = report;
+
+export default report
