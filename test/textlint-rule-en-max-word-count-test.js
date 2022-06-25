@@ -1,4 +1,5 @@
-const TextLintTester = require("textlint-tester");
+import TextLintTester from "textlint-tester"
+
 const tester = new TextLintTester();
 // rule
 import rule from "../src/textlint-rule-en-max-word-count";
@@ -82,20 +83,24 @@ This is not a pen.`,
         },
         // multiple hit items in a line
         {
-            text: "This is a pen.This is not a pen.",
+            text: "This is a pen. This is not a pen.",
             options: {
                 max: 3
             },
             errors: [
                 {
                     message: `Maximum word count (3) exceeded (4) by "This is a ...".`,
-                    line: 1,
-                    column: 1
+                    range: [
+                        0,
+                        14
+                    ]
                 },
                 {
                     message: `Maximum word count (3) exceeded (5) by "This is not ...".`,
-                    line: 1,
-                    column: 15
+                    range: [
+                        15,
+                        33
+                    ]
                 }
             ]
         },
