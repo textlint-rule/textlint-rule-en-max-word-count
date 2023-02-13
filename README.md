@@ -1,4 +1,4 @@
-# textlint-rule-en-max-word-count [![Actions Status: test](https://github.com/azu/textlint-rule-en-max-word-count/workflows/test/badge.svg)](https://github.com/azu/textlint-rule-en-max-word-count/actions?query=workflow%3A"test")
+# textlint-rule-en-max-word-count [![Actions Status: test](https://github.com/textlint-rule/textlint-rule-en-max-word-count/workflows/test/badge.svg)](https://github.com/textlint-rule/textlint-rule-en-max-word-count/actions?query=workflow%3A"test")
 
 [textlint](https://github.com/textlint/textlint "textlint") rule that specify the maximum word count of a sentence.
 
