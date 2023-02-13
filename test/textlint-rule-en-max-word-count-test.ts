@@ -1,5 +1,4 @@
 import TextLintTester from "textlint-tester"
-
 const tester = new TextLintTester();
 // rule
 import rule from "../src/textlint-rule-en-max-word-count";
