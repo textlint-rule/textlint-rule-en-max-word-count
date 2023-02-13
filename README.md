@@ -10,7 +10,7 @@
 
 Via `.textlintrc`(Recommended)
 
-```js
+```json5
 {
     "rules": {
         "en-max-word-count": {
@@ -31,11 +31,11 @@ textlint --rule en-max-word-count README.md
 
 `.textlintrc` options.
 
-```js
+```json5
 {
     "rules": {
         "en-max-word-count": {
-            // max count of word >
+            // max count of words and report error if exceed
             "max" : 50
         }
     }
